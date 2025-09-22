@@ -1,0 +1,408 @@
+/* Homepage.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Custom keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes steamRise {
+  0% {
+    opacity: 0.7;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(-20px) rotate(5deg) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-5deg) scale(0.8);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(139, 69, 19, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 69, 19, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.homepage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0e0a 0%, #3e2723 30%, #6d4c41 60%, #8d6e63 100%);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Animated background particles */
+.homepage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(245, 222, 179, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(210, 180, 140, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(139, 69, 19, 0.05) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.homepage h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #f5deb3, #daa520, #cd853f, #d2691e);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+  animation: fadeInUp 1s ease-out, shimmer 3s linear infinite;
+  position: relative;
+}
+
+.homepage h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #daa520, transparent);
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #d2b48c;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 300;
+  animation: fadeInUp 1s ease-out 0.3s both;
+  opacity: 0.9;
+}
+
+.logo-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  animation: bounceIn 1.2s ease-out 0.5s both;
+}
+
+.logo-container img {
+  border-radius: 50%;
+  box-shadow: 
+    0 0 0 8px rgba(245, 222, 179, 0.2),
+    0 0 0 16px rgba(210, 180, 140, 0.1),
+    0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: float 3s ease-in-out infinite, pulse 2s infinite;
+  border: 4px solid #daa520;
+}
+
+.logo-container img:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 
+    0 0 0 12px rgba(245, 222, 179, 0.3),
+    0 0 0 24px rgba(210, 180, 140, 0.2),
+    0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Steam effect */
+.logo-container::before,
+.logo-container::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50px;
+  animation: steamRise 2s ease-in-out infinite;
+}
+
+.logo-container::before {
+  left: 45%;
+  animation-delay: 0s;
+}
+
+.logo-container::after {
+  right: 45%;
+  animation-delay: 0.8s;
+}
+
+.button-container {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.homepage button {
+  position: relative;
+  background: linear-gradient(145deg, #3e2723, #5d4037);
+  color: #ffffff;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  min-width: 180px;
+  overflow: hidden;
+}
+
+.homepage button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.homepage button:hover::before {
+  left: 100%;
+}
+
+.homepage button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.homepage button:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.admin-btn {
+  background: linear-gradient(145deg, #0d47a1, #1565c0, #1976d2) !important;
+  box-shadow: 
+    0 8px 25px rgba(13, 71, 161, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(145deg, #1565c0, #1976d2, #2196f3) !important;
+  box-shadow: 
+    0 15px 35px rgba(13, 71, 161, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.customer-btn {
+  background: linear-gradient(145deg, #1b5e20, #2e7d32, #388e3c) !important;
+  box-shadow: 
+    0 8px 25px rgba(27, 94, 32, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.customer-btn:hover {
+  background: linear-gradient(145deg, #2e7d32, #388e3c, #4caf50) !important;
+  box-shadow: 
+    0 15px 35px rgba(27, 94, 32, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.footer-credit {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  color: rgba(245, 222, 179, 0.6);
+  font-size: 0.9rem;
+  font-weight: 300;
+  animation: fadeInUp 1s ease-out 1.2s both;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 222, 179, 0.1);
+}
+
+.footer-credit span {
+  font-weight: 600;
+  color: #daa520;
+}
+
+/* Floating coffee beans animation */
+.coffee-bean {
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  background: #8b4513;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.3;
+  animation: float 4s ease-in-out infinite;
+}
+
+.coffee-bean:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.coffee-bean:nth-child(2) {
+  top: 25%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.coffee-bean:nth-child(3) {
+  bottom: 30%;
+  left: 8%;
+  animation-delay: 2s;
+}
+
+.coffee-bean:nth-child(4) {
+  bottom: 20%;
+  right: 12%;
+  animation-delay: 3s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .homepage h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .logo-container img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .homepage button {
+    width: 220px;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .footer-credit {
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage {
+    padding: 15px;
+  }
+  
+  .homepage h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .logo-container img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .homepage button {
+    width: 200px;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .button-container {
+    gap: 1rem;
+  }
+  
+  .footer-credit {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
