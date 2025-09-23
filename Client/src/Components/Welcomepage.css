@@ -1,4 +1,4 @@
-/* Homepage.css */
+/* Welcomepage.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap');
 
@@ -77,6 +77,17 @@
   }
 }
 
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .homepage {
   position: relative;
   display: flex;
@@ -139,19 +150,38 @@
 .subtitle {
   font-size: 1.2rem;
   color: #d2b48c;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
   font-weight: 300;
   animation: fadeInUp 1s ease-out 0.3s both;
   opacity: 0.9;
 }
 
+.footer-credit {
+  color: rgba(245, 222, 179, 0.7);
+  font-size: 0.9rem;
+  font-weight: 300;
+  animation: slideInFromTop 1s ease-out 0.5s both;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 222, 179, 0.2);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.footer-credit span {
+  font-weight: 600;
+  color: #daa520;
+}
+
 .logo-container {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem 0;
   display: flex;
   justify-content: center;
   position: relative;
-  animation: bounceIn 1.2s ease-out 0.5s both;
+  animation: bounceIn 1.2s ease-out 0.7s both;
 }
 
 .logo-container img {
@@ -199,10 +229,10 @@
 .button-container {
   display: flex;
   gap: 3rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  animation: fadeInUp 1s ease-out 0.8s both;
+  animation: fadeInUp 1s ease-out 1s both;
 }
 
 .homepage button {
@@ -255,52 +285,33 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* Coffee-themed button colors */
 .admin-btn {
-  background: linear-gradient(145deg, #0d47a1, #1565c0, #1976d2) !important;
+  background: linear-gradient(145deg, #8b4513, #a0522d, #cd853f) !important;
   box-shadow: 
-    0 8px 25px rgba(13, 71, 161, 0.4),
+    0 8px 25px rgba(139, 69, 19, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
 .admin-btn:hover {
-  background: linear-gradient(145deg, #1565c0, #1976d2, #2196f3) !important;
+  background: linear-gradient(145deg, #a0522d, #cd853f, #daa520) !important;
   box-shadow: 
-    0 15px 35px rgba(13, 71, 161, 0.5),
+    0 15px 35px rgba(139, 69, 19, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
 }
 
 .customer-btn {
-  background: linear-gradient(145deg, #1b5e20, #2e7d32, #388e3c) !important;
+  background: linear-gradient(145deg, #654321, #8b4513, #a0522d) !important;
   box-shadow: 
-    0 8px 25px rgba(27, 94, 32, 0.4),
+    0 8px 25px rgba(101, 67, 33, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
 .customer-btn:hover {
-  background: linear-gradient(145deg, #2e7d32, #388e3c, #4caf50) !important;
+  background: linear-gradient(145deg, #8b4513, #a0522d, #cd853f) !important;
   box-shadow: 
-    0 15px 35px rgba(27, 94, 32, 0.5),
+    0 15px 35px rgba(101, 67, 33, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-}
-
-.footer-credit {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  color: rgba(245, 222, 179, 0.6);
-  font-size: 0.9rem;
-  font-weight: 300;
-  animation: fadeInUp 1s ease-out 1.2s both;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 8px 16px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(245, 222, 179, 0.1);
-}
-
-.footer-credit span {
-  font-weight: 600;
-  color: #daa520;
 }
 
 /* Floating coffee beans animation */
@@ -349,6 +360,15 @@
     font-size: 1rem;
   }
   
+  .footer-credit {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .logo-container {
+    margin: 1rem 0 1.5rem 0;
+  }
+  
   .logo-container img {
     width: 150px;
     height: 150px;
@@ -358,18 +378,13 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    margin-top: 1.5rem;
   }
   
   .homepage button {
     width: 220px;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
-  }
-  
-  .footer-credit {
-    bottom: 10px;
-    right: 15px;
-    font-size: 0.8rem;
   }
 }
 
@@ -381,6 +396,20 @@
   .homepage h1 {
     font-size: 2.5rem;
     letter-spacing: 1px;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .footer-credit {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    margin-bottom: 1rem;
+  }
+  
+  .logo-container {
+    margin: 0.5rem 0 1rem 0;
   }
   
   .logo-container img {
@@ -396,13 +425,6 @@
   
   .button-container {
     gap: 1rem;
-  }
-  
-  .footer-credit {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 2rem;
-    text-align: center;
+    margin-top: 1rem;
   }
 }

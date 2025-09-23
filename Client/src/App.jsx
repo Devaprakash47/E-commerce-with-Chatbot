@@ -1,4 +1,4 @@
-import Homepage from "./Components/Homepage"
+import Welcomepage from "./Components/Welcomepage"
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       
-       <Homepage/>
+       <Welcomepage/>
     </>
   )
 }
